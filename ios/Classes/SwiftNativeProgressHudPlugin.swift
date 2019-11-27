@@ -48,9 +48,6 @@ public class SwiftNativeProgressHudPlugin: NSObject, FlutterPlugin {
 
              showHUD(result: result)
          case "showNativeViewProgressTxt":
-            SwiftOverlays.showBlockingWaitOverlay()
-
-           
            let text =  (call.arguments as! Dictionary<String, Any>)["text"];
            let textColor =  (call.arguments as! Dictionary<String, Any>)["textColor"];
            let backgroundColor =  (call.arguments as! Dictionary<String, Any>)["backgroundColor"];
