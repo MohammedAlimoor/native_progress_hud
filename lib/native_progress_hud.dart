@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class NativeProgressHud {
@@ -10,12 +11,13 @@ class NativeProgressHud {
     final String version = await _channel.invokeMethod('getPlatformVersion');
     return version;
   }
-  static Future<Null> showWaiting() async {
-    await _channel.invokeMethod('showNativeViewProgress');
+  static Future<Null> showWaiting({String backgroundColor =  "#000000",String textColor = "#ffffff"}) async {
+    await _channel.invokeMethod('showNativeViewProgress',{"backgroundColor":backgroundColor,"textColor":textColor});
   }
 
-  static Future<Null> showWaitingWithText(text) async {
-    await _channel.invokeMethod('showNativeViewProgressTxt',{"text":text});
+
+  static Future<Null> showWaitingWithText(String text, {String backgroundColor =  "#000000",String textColor = "#ffffff"}) async {
+    await _channel.invokeMethod('showNativeViewProgressTxt',{"text":text,"backgroundColor":backgroundColor,"textColor":textColor});
   }
 
   static  Future<Null> hideWaiting() async {

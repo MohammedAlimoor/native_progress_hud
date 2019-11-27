@@ -1,7 +1,7 @@
 name: native_progress_hud
-description:  Native hud loading dialogs.
-version: 0.0.1
-author: Wouter Hardeman <wouterhardeman94@gmail.com>
+description:  Native hud loading dialogs. (show loading hud with text or without , you can customize colors and background)
+version: 1.0.1
+author: Mohammed Alimoor <ameral.java@gmail.com>
 homepage: https://github.com/MohammedAlimoor/native_progress_hud
 
 environment:

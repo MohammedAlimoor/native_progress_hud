@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
 //    }
 
 
-    NativeProgressHud.hideWaiting();
+    NativeProgressHud.showWaitingWithText("Loading ....",backgroundColor: "#FF0000",textColor: "#FFFFFF");
 
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling

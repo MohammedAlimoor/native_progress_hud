@@ -131,7 +131,9 @@ open class SwiftOverlays: NSObject {
     static let padding = CGFloat(10)
     
     static let backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
-    static let textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+    static var backgroundColor3 = UIColor.blue
+
+    static var textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
     static let font = UIFont.systemFont(ofSize: 14)
     
     // Annoying notifications on top of status bar
@@ -278,7 +280,7 @@ open class SwiftOverlays: NSObject {
         
         containerView.tag = containerViewTag
         containerView.layer.cornerRadius = cornerRadius
-        containerView.backgroundColor = backgroundColor
+        containerView.backgroundColor = backgroundColor3
         containerView.center = CGPoint(
             x: parentView.bounds.size.width/2,
             y: parentView.bounds.size.height/2
@@ -339,7 +341,7 @@ open class SwiftOverlays: NSObject {
      
         containerView.tag = containerViewTag
         containerView.layer.cornerRadius = cornerRadius
-        containerView.backgroundColor = backgroundColor
+        containerView.backgroundColor = backgroundColor3.withAlphaComponent(0.6)
         containerView.center = CGPoint(
             x: parentView.bounds.size.width/2,
             y: parentView.bounds.size.height/2
@@ -369,7 +371,7 @@ open class SwiftOverlays: NSObject {
         
         containerView.tag = containerViewTag
         containerView.layer.cornerRadius = cornerRadius
-        containerView.backgroundColor = backgroundColor
+        containerView.backgroundColor = backgroundColor3 //backgroundColor
         containerView.center = CGPoint(
             x: parentView.bounds.size.width/2,
             y: parentView.bounds.size.height/2

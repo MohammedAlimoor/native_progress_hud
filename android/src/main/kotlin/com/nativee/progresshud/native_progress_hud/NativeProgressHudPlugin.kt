@@ -1,6 +1,7 @@
 package com.nativee.progresshud.native_progress_hud
 
 import android.app.Activity
+import android.graphics.Color
 import com.kaopiz.kprogresshud.KProgressHUD
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -21,7 +22,10 @@ class NativeProgressHudPlugin (val activity: Activity): MethodCallHandler {
     }
   }
   var hud: KProgressHUD? =null
-//  var activity: Activity? =null
+
+  var backgroundColor:String = "#000000"
+  var textColor:String =  "#ffffff"
+//  var textColor:Int = Color.BLACK
 
   override fun onMethodCall(call: MethodCall, result: Result) {
 
@@ -29,25 +33,39 @@ class NativeProgressHudPlugin (val activity: Activity): MethodCallHandler {
       if (hud != null ){
         hud?.dismiss()
       }
-
+      if (call.hasArgument("backgroundColor")){
+        backgroundColor = call.argument<String>("backgroundColor")!!;
+      }
+      if (call.hasArgument("textColor")){
+        textColor = call.argument<String>("textColor")!!;
+      }
       hud =    KProgressHUD.create(this@NativeProgressHudPlugin.activity)
               .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-              .setLabel("Please wait ...")
+//              .setLabel("Please wait ...",Color.parseColor(textColor) )
               .setCancellable(false)
+              .setBackgroundColor( Color.parseColor(backgroundColor))
               .setAnimationSpeed(2)
               .setDimAmount(0.5f)
               .show()
+
+
       result.success(0)
 
     }else if (call.method.equals("showNativeViewProgressTxt",true)) {
       if (hud != null ){
         hud?.dismiss()
       }
-
+      if (call.hasArgument("backgroundColor")){
+        backgroundColor = call.argument<String>("backgroundColor")!!;
+      }
+      if (call.hasArgument("textColor")){
+        textColor = call.argument<String>("textColor")!!;
+      }
 
       hud =    KProgressHUD.create(this@NativeProgressHudPlugin.activity)
               .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
-              .setLabel(call.argument<String>("text"))
+              .setLabel(call.argument<String>("text"),Color.parseColor(textColor))
+              .setBackgroundColor(Color.parseColor(backgroundColor))
               .setCancellable(false)
               .setAnimationSpeed(2)
               .setDimAmount(0.5f)

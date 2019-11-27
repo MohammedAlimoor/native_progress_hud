@@ -1,7 +1,7 @@
 # native_progress_hud
 
-A new flutter plugin project.
-
+Native hud loading dialogs. (show loading hud with text or without , you can customize colors and background)
+without context flutter :)
 ## Getting Started
 
 This project is a starting point for a Flutter
@@ -9,14 +9,13 @@ This project is a starting point for a Flutter
 a specialized package that includes platform-specific implementation code for
 Android and/or iOS.
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
 # native_progress_hud ![Pub](https://img.shields.io/pub/v/native_progress_hud.svg) [![Build Status](https://travis-ci.com/wouterhardeman/native_progress_hud.svg?branch=master)](https://travis-ci.com/wouterhardeman/native_progress_hud)
 
-This plugin allows using native hud loading dialogs in Android and iOS. It was made specifically for Add2App use cases when just a part of your UI is made in Flutter.
-
+This plugin allows using native hud loading "or waiting" dialogs in Android and iOS. , you can customize colors and background) without context flutter :)
 
 ## Usage
 
@@ -27,9 +26,13 @@ To use this plugin, add `native_progress_hud` as a [dependency in your pubspec.y
 ```dart
 import 'package:native_progress_hud/native_progress_hud.dart';
 
+
     NativeProgressHud.showWaiting(); // show hud
 
-    NativeProgressHud.showWaitingWithText("show some text"); // show hud with text
+    NativeProgressHud.showWaiting(backgroundColor: "#FF0000",textColor: "#FFFFFF"); // show hud with colors
+
+    NativeProgressHud.showWaitingWithText("show some text"); // show hud with text  and you can change colors
+
     NativeProgressHud.hideWaiting(); // hide hud
 
 
