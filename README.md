@@ -16,7 +16,7 @@ samples, guidance on mobile development, and a full API reference.
 # native_progress_hud ![Pub](https://img.shields.io/pub/v/native_progress_hud.svg) [![Build Status](https://travis-ci.com/wouterhardeman/native_progress_hud.svg?branch=master)](https://travis-ci.com/wouterhardeman/native_progress_hud)
 
 This plugin allows using native hud loading "or waiting" dialogs in Android and iOS. , you can customize colors and background) without context flutter :)
-
+![2019-11-27 11_35_09](https://github.com/MohammedAlimoor/native_progress_hud/raw/master/screenshotwithottext.gif)
 ## Usage
 
 To use this plugin, add `native_progress_hud` as a [dependency in your pubspec.yaml file](https://flutter.io/docs/development/packages-and-plugins/using-packages).
