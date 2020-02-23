@@ -1,3 +1,6 @@
+# 1.0.3
+
+-  fix android thread
 # 1.0.2
 
 - hot fix
