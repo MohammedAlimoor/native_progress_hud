@@ -41,8 +41,8 @@ public class SwiftNativeProgressHudPlugin: NSObject, FlutterPlugin {
          case "showNativeViewProgress":
             SwiftOverlays.showBlockingWaitOverlay()
 
-            let textColor =  (call.arguments as! Dictionary<String, Any>)["textColor"];
-            let backgroundColor =  (call.arguments as! Dictionary<String, Any>)["backgroundColor"];
+            _ =  (call.arguments as! Dictionary<String, Any>)["textColor"];
+            let backgroundColor =  (call.arguments as! Dictionary<String, Any>)["backgroundColor"]
             
             SwiftOverlays.backgroundColor3 = hexStringToUIColor(hex: backgroundColor as! String)
 
@@ -50,7 +50,7 @@ public class SwiftNativeProgressHudPlugin: NSObject, FlutterPlugin {
          case "showNativeViewProgressTxt":
            let text =  (call.arguments as! Dictionary<String, Any>)["text"];
            let textColor =  (call.arguments as! Dictionary<String, Any>)["textColor"];
-           let backgroundColor =  (call.arguments as! Dictionary<String, Any>)["backgroundColor"];
+           let backgroundColor =  (call.arguments as! Dictionary<String, Any>)["backgroundColor"]
            SwiftOverlays.backgroundColor3 = hexStringToUIColor(hex: backgroundColor as! String)
            SwiftOverlays.textColor = hexStringToUIColor(hex: textColor as! String)
 
