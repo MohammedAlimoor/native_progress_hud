@@ -419,7 +419,6 @@ open class SwiftOverlays: NSObject {
             bannerWindow!.backgroundColor = UIColor.clear
         }
 
-        // TODO: use autolayout instead
         // Ugly, but works
         let topHeight = UIApplication.shared.statusBarFrame.size.height
             + UINavigationController().navigationBar.frame.height

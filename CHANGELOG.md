@@ -1,3 +1,6 @@
+# 1.0.4
+
+-  some fix on android
 # 1.0.3
 
 -  fix android thread
@@ -10,4 +13,3 @@
 
 # 0.0.1
 its the start :)
-* TODO: Describe initial release.

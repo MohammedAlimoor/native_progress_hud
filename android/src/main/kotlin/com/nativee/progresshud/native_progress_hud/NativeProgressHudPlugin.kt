@@ -11,32 +11,29 @@ import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.Registrar
 
 class NativeProgressHudPlugin(val activity: Activity) : MethodCallHandler {
-    //  (val activity: Activity)
     companion object {
         @JvmStatic
         fun registerWith(registrar: Registrar) {
             val channel = MethodChannel(registrar.messenger(), "native_progress_hud")
-//      channel.setMethodCallHandler(NativeProgressHudPlugin())
             channel.setMethodCallHandler(NativeProgressHudPlugin(registrar.activity()))
 
-//       activity = registrar.activity()
         }
     }
 
     var hud: KProgressHUD? = null
-
+    private var currentActivity: Activity? = null
     var backgroundColor: String = "#000000"
     var textColor: String = "#ffffff"
-//  var textColor:Int = Color.BLACK
+
 
     override fun onMethodCall(call: MethodCall, result: Result) {
-
         if (call.method.equals("showNativeViewProgress", true)) {
             if (hud != null) {
 //                hud?.dismiss()
                 Handler().post(Runnable {
                     // Code here will run in UI thread
-                    hud?.dismiss();
+                    this.dismiss()
+
                 })
             }
             if (call.hasArgument("backgroundColor")) {
@@ -57,14 +54,14 @@ class NativeProgressHudPlugin(val activity: Activity) : MethodCallHandler {
                 hud?.show()
             })
 
-            result.success(0)
+//            result.success(0)
 
         } else if (call.method.equals("showNativeViewProgressTxt", true)) {
             if (hud != null) {
-//                hud?.dismiss()
                 Handler().post(Runnable {
                     // Code here will run in UI thread
-                    hud?.dismiss();
+                    this.dismiss()
+
                 })
             }
             if (call.hasArgument("backgroundColor")) {
@@ -83,31 +80,36 @@ class NativeProgressHudPlugin(val activity: Activity) : MethodCallHandler {
                     .setDimAmount(0.5f)
 
             Handler().post(Runnable {
-                // Code here will run in UI thread
                 hud?.show()
             })
 
-            result.success(0)
+//            result.success(0)
 
         } else
             if (call.method.equals("hideNativeViewProgress", true)) {
-//        Log.d("HUD ::","Hide")
 
-                if (hud != null) {
-//          Log.d("HUD ::","Hide2")
-                    Handler().post(Runnable {
-                        // Code here will run in UI thread
-                        hud?.dismiss();
-                    })
-                }
-                result.success(0)
+                this.dismiss();
+//                if (hud != null) {
+//                    Handler().post(Runnable {
+//                        // Code here will run in UI thread
+//                        hud?.dismiss();
+//                    })
+//                }
+//                result.success(0)
 
-            }
-
-        if (call.method == "getPlatformVersion") {
-            result.success("Android ${android.os.Build.VERSION.RELEASE}")
-        } else {
+            } else {
             result.notImplemented()
         }
+
+        result.success(true)
+    }
+
+
+    fun dismiss() {
+        if (hud != null) {
+            hud!!.dismiss()
+            hud = null
+        }
+
     }
 }
