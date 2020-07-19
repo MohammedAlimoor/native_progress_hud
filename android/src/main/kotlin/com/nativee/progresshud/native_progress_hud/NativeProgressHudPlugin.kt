@@ -42,17 +42,20 @@ class NativeProgressHudPlugin(val activity: Activity) : MethodCallHandler {
             if (call.hasArgument("textColor")) {
                 textColor = call.argument<String>("textColor")!!;
             }
-            hud = KProgressHUD.create(this@NativeProgressHudPlugin.activity)
-                    .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+            if(this@NativeProgressHudPlugin.activity != null ){
+                hud = KProgressHUD.create(this@NativeProgressHudPlugin.activity)
+                        .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
 //              .setLabel("Please wait ...",Color.parseColor(textColor) )
-                    .setCancellable(false)
-                    .setBackgroundColor(Color.parseColor(backgroundColor))
-                    .setAnimationSpeed(2)
-                    .setDimAmount(0.5f)
-            Handler().post(Runnable {
-                // Code here will run in UI thread
-                hud?.show()
-            })
+                        .setCancellable(false)
+                        .setBackgroundColor(Color.parseColor(backgroundColor))
+                        .setAnimationSpeed(2)
+                        .setDimAmount(0.5f)
+                Handler().post(Runnable {
+                    // Code here will run in UI thread
+                    hud?.show()
+                })
+            }
+
 
 //            result.success(0)
 
@@ -70,6 +73,7 @@ class NativeProgressHudPlugin(val activity: Activity) : MethodCallHandler {
             if (call.hasArgument("textColor")) {
                 textColor = call.argument<String>("textColor")!!;
             }
+            if(this@NativeProgressHudPlugin.activity != null ){
 
             hud = KProgressHUD.create(this@NativeProgressHudPlugin.activity)
                     .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
@@ -82,6 +86,7 @@ class NativeProgressHudPlugin(val activity: Activity) : MethodCallHandler {
             Handler().post(Runnable {
                 hud?.show()
             })
+            }
 
 //            result.success(0)
 

@@ -1,5 +1,8 @@
 # 1.0.4
 
+-  update for ios
+# 1.0.4
+
 -  some fix on android
 # 1.0.3
 
