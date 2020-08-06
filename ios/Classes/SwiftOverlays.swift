@@ -263,7 +263,7 @@ open class SwiftOverlays: NSObject {
     // MARK: Non-blocking
     @discardableResult
     open class func showCenteredWaitOverlay(_ parentView: UIView) -> UIView {
-        let ai = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
+        let ai = UIActivityIndicatorView.init(style: .whiteLarge)
         ai.startAnimating()
 
         let containerViewRect = CGRect(
@@ -299,7 +299,7 @@ open class SwiftOverlays: NSObject {
 
     @discardableResult
     open class func showCenteredWaitOverlayWithText(_ parentView: UIView, text: String) -> UIView  {
-        let ai = UIActivityIndicatorView.init(activityIndicatorStyle: .white)
+        let ai = UIActivityIndicatorView.init(style: .white)
         ai.startAnimating()
 
         return showGenericOverlay(parentView, text: text, accessoryView: ai)
